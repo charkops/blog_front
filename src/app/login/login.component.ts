@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertService } from '../services/alert.service';
+import { AuthenticationService } from '../services/authentication.service';
+
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -17,15 +21,23 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    // private authenticationService: AuthenticationService,
-    // private alertService: AlertService
-  ) { }
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService
+  ) {
+    // Redirect to home if already logged in
+    if (this.authenticationService.currentUserValue) {
+      this.router.navigate(['/']);
+    }
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    // NOTE (@charkops): Is really necessary ?
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // Getter for easy access to Form fields
@@ -34,6 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('submitting');
     this.submitted = true;
     // Stop if form is invalid
     if (this.loginForm.invalid) {
@@ -41,6 +54,14 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
+    this.authenticationService.login(this.f.username.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(data => {
+        this.router.navigate([this.returnUrl]);
+      }, error => {
+        this.alertService.error(error);
+        this.loading = false;
+      });
   }
 
 }
