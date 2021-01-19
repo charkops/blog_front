@@ -26,11 +26,14 @@ export class AuthenticationService {
 
   // Store user info to be logged in even through refreshing the page
   login(username: string, password: string) {
-    return this.http.post<any>(environment.backendUrl + '/users/authenticate', { username, password })
+    return this.http.post<any>(environment.backendUrl + '/users/login', { username, password })
       .pipe(map(user => {
         // Store user details and JWT token in local storage
+        // NOTE (@charkops): Don't store the password in localStorage for every1 to see ?
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
+        console.log('login->user:');
+        console.log(user);
         return user;
       }));
   }
