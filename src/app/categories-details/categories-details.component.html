@@ -3,6 +3,6 @@
 
 <div class="categories-list">
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let category of availableCategories">{{category.title}}</li>
+    <li class="list-group-item" *ngFor="let category of availableCategories; let i = index" (click)="onCategoryClick(i)">{{category.title}}</li>
   </ul>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Blog } from '../models/blog';
 import { Category } from '../models/category';
 import { BlogService } from '../services/blog.service';
@@ -13,6 +13,8 @@ export class CategoriesDetailsComponent implements OnInit {
 
   availableCategories: Category[] = [];
   blog: Blog;
+
+  @Input() i: number;
 
   constructor(
     private categoriesService: CategoriesService,
@@ -31,7 +33,11 @@ export class CategoriesDetailsComponent implements OnInit {
     this.categoriesService.getCategories().subscribe(categories => {
       this.availableCategories = categories;
     })
+  }
 
+  onCategoryClick(i: number) {
+    const category = this.availableCategories[i];
+    console.log(category);
   }
 
 }
