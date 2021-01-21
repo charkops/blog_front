@@ -1,0 +1,8 @@
+
+<h3>Available categories for blog: {{ blog.title }}</h3>
+
+<div class="categories-list">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let category of availableCategories">{{category.title}}</li>
+  </ul>
+</div>
