@@ -32,8 +32,6 @@ export class AuthenticationService {
         // NOTE (@charkops): Don't store the password in localStorage for every1 to see ?
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-        console.log('login->user:');
-        console.log(user);
         return user;
       }));
   }

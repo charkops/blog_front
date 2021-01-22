@@ -37,7 +37,6 @@ export class CategoriesDetailsComponent implements OnInit {
 
   onCategoryClick(i: number) {
     const category = this.availableCategories[i];
-    console.log(category);
   }
 
 }
