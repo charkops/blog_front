@@ -3,10 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { PostComponent } from './post/post.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  // NOTE (@charkops): Does this also need a AuthGuard ?
+  // Probably right ?
+  {path: 'post/:post_id', component: PostComponent},
   {path: 'login', component: LoginComponent},
 
   // Otherwise redirect to home

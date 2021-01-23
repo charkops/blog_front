@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '../models/post';
 import { PostsService } from '../services/posts.service';
 
@@ -12,7 +13,8 @@ export class PostsDetailsComponent implements OnInit {
   availablePosts: Post[] = [];
 
   constructor(
-    private postsService: PostsService
+    private postsService: PostsService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -27,9 +29,10 @@ export class PostsDetailsComponent implements OnInit {
 
   onPostClick(i: number) {
     const post = this.availablePosts[i];
+    const post_id = +post.post_id;
     
     // Navigate to /post/:post_id to view full post
-    
+    this.router.navigate(["post", post_id]);
   }
 
 }

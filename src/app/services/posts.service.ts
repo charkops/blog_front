@@ -18,4 +18,9 @@ export class PostsService {
 
     return this.http.get<any>(environment.backendUrl + '/posts/all/' + blog_id);
   }
+
+  getPost(post_id: number) {
+    // Get post from post_id
+    return this.http.get<any>(environment.backendUrl + '/posts/' + post_id);
+  }
 }
