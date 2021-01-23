@@ -1,0 +1,7 @@
+<h3>Available posts in blog:</h3>
+
+<div class="posts-list">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let post of availablePosts; let i = index" (click)="onPostClick(i)">{{post.title}}</li>
+  </ul>
+</div>
