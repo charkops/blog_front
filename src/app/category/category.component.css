@@ -1,0 +1,21 @@
+
+
+.posts-in-categories {
+  /* border: 2px solid black; */
+  border-radius: 15px;
+  margin-top: 2rem;
+}
+
+.posts-in-categories:hover {
+  border: 1px solid blue;
+  box-shadow: 2px 4px #888888;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+.post-container {
+  margin: 0.5rem;
+}

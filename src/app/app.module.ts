@@ -12,6 +12,7 @@ import { CategoriesDetailsComponent } from './categories-details/categories-deta
 import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { PostComponent } from './post/post.component';
 import { CategoryComponent } from './category/category.component';
+import { TrancPostContentPipe } from './pipes/tranc-post-content.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CategoryComponent } from './category/category.component';
     CategoriesDetailsComponent,
     PostsDetailsComponent,
     PostComponent,
-    CategoryComponent
+    CategoryComponent,
+    TrancPostContentPipe
   ],
   imports: [
     BrowserModule,
