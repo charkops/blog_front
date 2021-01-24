@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Post } from '../models/post';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +29,9 @@ export class PostsService {
 
   createPost(newPost: any) {
     return this.http.post<any>(environment.backendUrl + '/posts', newPost);
+  }
+
+  deletePost(post_id: number) {
+    return this.http.delete<any>(environment.backendUrl + '/posts/' + post_id);
   }
 }

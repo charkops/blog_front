@@ -36,4 +36,12 @@ export class PostComponent implements OnInit {
     this.router.navigate([""]);
   }
 
+  onDelete() {
+    this.postsService.deletePost(this.post.post_id)
+    .subscribe(message => {
+      // This doesn't have to be logged
+      this.router.navigate(['']);
+    });
+  }
+
 }
