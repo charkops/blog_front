@@ -48,4 +48,8 @@ export class CreatePostComponent implements OnInit {
       this.router.navigate(['']);
     });
   }
+
+  onHomeClick() {
+    this.router.navigate(['']);
+  }
 }
