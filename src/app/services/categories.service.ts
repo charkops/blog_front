@@ -19,4 +19,8 @@ export class CategoriesService {
 
     return this.http.post<Category[]>(environment.backendUrl + '/categories', { blog_id });
   }
+
+  getCategory(category_id: number) {
+    return this.http.get<any>(environment.backendUrl + '/categories/' + category_id);
+  }
 }

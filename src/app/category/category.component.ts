@@ -31,7 +31,11 @@ export class CategoryComponent implements OnInit {
     })
 
     this.category = new Category;
-    this.categoriesService.getCategories
+    this.categoriesService.getCategory(category_id)
+    .subscribe(category => {
+      this.category = category.category;
+      console.log(category);
+    })
   }
 
   onHomeClick() {

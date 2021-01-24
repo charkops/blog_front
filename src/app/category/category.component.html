@@ -1,6 +1,6 @@
 
 
-<h3>Posts in category: </h3>
+<h3>Posts in category: <span class="category-title">{{ category.title }}</span></h3>
 
 <!-- Display posts -->
 <!-- This really should be written better, but will do for now -->
@@ -10,5 +10,9 @@
       <p>{{ post.content | trancPostContent : 50 }}</p>
     </div>
 </div>  
+
+<div *ngIf="availablePosts.length == 0" class="alert alert-danger">
+  Oops, seems like there are no posts in: {{ category.title }}
+</div>
 
 <button class="btn btn-primary" (click)="onHomeClick()">Home</button>
