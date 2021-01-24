@@ -4,7 +4,7 @@
 
 <!-- Display posts -->
 <!-- This really should be written better, but will do for now -->
-<div class="posts-in-categories" *ngFor="let post of availablePosts" (click)="onPostClick()">
+<div class="posts-in-categories" *ngFor="let post of availablePosts; let i = index" (click)="onPostClick(i)">
     <div class="post-container">
       <h5><b>{{ post.title }}</b></h5>
       <p>{{ post.content | trancPostContent : 50 }}</p>

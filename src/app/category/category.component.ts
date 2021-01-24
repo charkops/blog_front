@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../models/category';
 import { Post } from '../models/post';
@@ -13,14 +13,19 @@ import { PostsService } from '../services/posts.service';
 export class CategoryComponent implements OnInit {
 
   availablePosts: Post[] = [];
+  post: Post;
   category: Category;
+
+  @Input() i: number;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private postsService: PostsService,
     private categoriesService: CategoriesService
-  ) { }
+  ) {
+    this.post = new Post;
+  }
 
   ngOnInit(): void {
     const category_id = +this.route.snapshot.params['category_id'];
@@ -42,8 +47,10 @@ export class CategoryComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  onPostClick() {
-    
+  onPostClick(i: number) {
+    this.post = this.availablePosts[i];
+    const post_id = this.post.post_id;
+    this.router.navigate(['post', post_id]);
   }
 
   // Go to post creation page
