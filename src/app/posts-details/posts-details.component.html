@@ -2,6 +2,6 @@
 
 <div class="posts-list">
   <ul class="list-group">
-    <li class="list-group-item" *ngFor="let post of availablePosts; let i = index" (click)="onPostClick(i)">{{post.title}}</li>
+    <li class="list-group-item" *ngFor="let post of availablePosts; let i = index" (click)="onPostClick(i)"><p><b>{{post.title}}</b></p> <p>{{ post.content | trancPostContent : 30 }}</p></li>
   </ul>
 </div>
