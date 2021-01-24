@@ -11,6 +11,7 @@ import { AlertComponent } from './alert/alert.component';
 import { CategoriesDetailsComponent } from './categories-details/categories-details.component';
 import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { PostComponent } from './post/post.component';
+import { CategoryComponent } from './category/category.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PostComponent } from './post/post.component';
     AlertComponent,
     CategoriesDetailsComponent,
     PostsDetailsComponent,
-    PostComponent
+    PostComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

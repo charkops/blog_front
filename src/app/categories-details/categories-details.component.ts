@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Blog } from '../models/blog';
 import { Category } from '../models/category';
 import { BlogService } from '../services/blog.service';
@@ -18,7 +19,8 @@ export class CategoriesDetailsComponent implements OnInit {
 
   constructor(
     private categoriesService: CategoriesService,
-    private blogService: BlogService
+    private blogService: BlogService,
+    private router: Router
   ) {
     this.blog = new Blog;
   }
@@ -37,6 +39,8 @@ export class CategoriesDetailsComponent implements OnInit {
 
   onCategoryClick(i: number) {
     const category = this.availableCategories[i];
+    const category_id = category.category_id;
+    this.router.navigate(['category', category_id]);
   }
 
 }

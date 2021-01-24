@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CategoryComponent } from './category/category.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent, canActivate: [AuthGuard]},
   // NOTE (@charkops): Does this also need a AuthGuard ?
   // Probably right ?
+  {path: 'category/:category_id', component: CategoryComponent},
   {path: 'post/:post_id', component: PostComponent},
   {path: 'login', component: LoginComponent},
 
