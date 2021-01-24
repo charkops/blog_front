@@ -13,6 +13,7 @@ import { PostsDetailsComponent } from './posts-details/posts-details.component';
 import { PostComponent } from './post/post.component';
 import { CategoryComponent } from './category/category.component';
 import { TrancPostContentPipe } from './pipes/tranc-post-content.pipe';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TrancPostContentPipe } from './pipes/tranc-post-content.pipe';
     PostsDetailsComponent,
     PostComponent,
     CategoryComponent,
-    TrancPostContentPipe
+    TrancPostContentPipe,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

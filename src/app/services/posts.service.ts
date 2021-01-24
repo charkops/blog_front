@@ -27,4 +27,8 @@ export class PostsService {
   getAllPostsFromCategory(category_id: number) {
     return this.http.get<any>(environment.backendUrl + '/postsFromCategory/' + category_id);
   }
+
+  createPost(newPost: any) {
+    return this.http.post<any>(environment.backendUrl + '/posts', newPost);
+  }
 }

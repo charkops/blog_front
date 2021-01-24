@@ -46,4 +46,9 @@ export class CategoryComponent implements OnInit {
     
   }
 
+  // Go to post creation page
+  onCreatePost() {
+    const category_id = +this.route.snapshot.params['category_id'];
+    this.router.navigate(['createPost', category_id]);
+  }
 }
